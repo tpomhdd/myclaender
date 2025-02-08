@@ -1,0 +1,19 @@
+{
+  "app_name": "Calendrier",
+  "weather_status": "Condition Météo",
+  "fajr": "Fajr",
+  "sunrise": "Lever du soleil",
+  "dhuhr": "Dhouhr",
+  "asr": "Asr",
+  "maghrib": "Maghreb",
+  "isha": "Icha",
+  "remaining_time_dhuhr": "Temps restant pour l'Adhan du Dhouhr",
+  "next_day": "Jour suivant",
+  "previous_day": "Jour précédent",
+  "greetings": "Avec les salutations de Mohamed Al-Masry",
+  "settings": "Paramètres",
+  "go_to_date": "Aller à la date",
+  "day": "Jour",
+  "hijri_date": "Date Hijri",
+  "gregorian_date": "Date Grégorienne"
+}
