@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/core/sqllite/db.dart';
 
+import 'core/AdManager.dart';
+
 
 
 class NotesListScreen extends StatefulWidget {
@@ -15,7 +17,12 @@ class _NotesListScreenState extends State<NotesListScreen> {
   @override
   void initState() {
     super.initState();
-    fetchNotes();
+    AdManager.loadInterstitialAd(() {
+      print("تم إغلاق الإعلان بنجاح");
+    });
+
+
+  fetchNotes();
   }
 
   // ✅ جلب البيانات من قاعدة البيانات

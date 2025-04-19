@@ -1,4 +1,4 @@
-
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 
@@ -77,6 +77,7 @@ import 'package:flutter_background_service/flutter_background_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await MobileAds.instance.initialize();
   final service = FlutterBackgroundService();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String langCode = prefs.getString('lang') ?? 'ar'; // الافتراضي 'ar'

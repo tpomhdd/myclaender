@@ -3,6 +3,14 @@ import 'package:jhijri/_src/_jHijri.dart';
 import 'package:untitled/DailyPlannerScreen2.dart';
 import 'package:untitled/core/sqllite/db.dart';
 
+import 'core/AdManager.dart';
+void loadInterstitialWithDelay() async {
+  await Future.delayed(Duration(seconds: 3)); // تأخير 10 ثواني
+  AdManager.loadInterstitialAd(() {
+    print("تم إغلاق الإعلان بنجاح");
+  });
+}
+
 class PagesNote extends StatefulWidget {
   const PagesNote({Key? key}) : super(key: key);
 
@@ -14,7 +22,7 @@ class _PagesNoteState extends State<PagesNote> {
   @override
   Widget build(BuildContext context) {
     PageController _pageController = PageController();
-
+loadInterstitialWithDelay();
     return FutureBuilder(
       future: getdata(),
       builder: (BuildContext context, AsyncSnapshot<List<Map>> snapshot) {

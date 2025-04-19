@@ -3,6 +3,7 @@ import 'package:jhijri_picker/jhijri_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:jhijri/_src/_jHijri.dart';
+import 'package:untitled/core/AdManager.dart';
 import 'package:untitled/man_widget/Btn.dart';
 import 'package:untitled/widgets/man_widget/mytext.dart';
 
@@ -21,6 +22,9 @@ class _HijriDateScreenState extends State<HijriDateScreen> {
   void initState() {
     super.initState();
     jh3 = JHijri(fDate: now); // تعيين التاريخ الهجري عند بدء الشاشة
+    AdManager.loadInterstitialAd(() {
+      print("تم إغلاق الإعلان بنجاح");
+    });
   }
 
   void updateDate() {

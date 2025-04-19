@@ -88,7 +88,7 @@ dev_dependencies:
   sqflite:
   jhijri_picker: 0.0.3
 
-  #google_mobile_ads:
+  google_mobile_ads: ^4.0.0
 
   adhan:
   google_fonts:
@@ -133,10 +133,10 @@ flutter:
 fonts:
   - family: one
     fonts:
-      - asset: assets/1.ttf
+      - asset: assets/one.ttf
   - family: tow
     fonts:
-      - asset: assets/2.ttf
+      - asset: assets/tow.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

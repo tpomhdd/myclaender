@@ -8,6 +8,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
+import 'core/AdManager.dart';
+
 
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
@@ -72,7 +74,12 @@ class _VoiceMemoScreenState extends State<VoiceMemoScreen> {
     recorder = FlutterSoundRecorder();
     player.openPlayer();
     initRecorder();
+
     loadMemos();
+    AdManager.loadInterstitialAd(() {
+      print("تم إغلاق الإعلان بنجاح");
+    });
+
   }
 
   Future<void> initRecorder() async {

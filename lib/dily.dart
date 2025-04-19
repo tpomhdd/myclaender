@@ -8,6 +8,8 @@ import 'package:untitled/core/man_widget/textfiled.dart';
 import 'package:untitled/core/mydata.dart';
 import 'package:untitled/widgets/man_widget/mytext.dart';
 
+import 'core/AdManager.dart';
+
 
 
 class DailyPlannerScreen extends StatelessWidget {
@@ -16,10 +18,14 @@ final DateTime dateTime;
 
 DailyPlannerScreen({super.key, required this.dateTime});
   TextEditingController textEditingController=new TextEditingController();
+
   @override
 
   Widget build(BuildContext context) {
 
+    AdManager.loadInterstitialAd(() {
+      print("تم إغلاق الإعلان بنجاح");
+    });
     DateTime now = dateTime;
     String dayName = DateFormat('EEEE', 'en').format(now);
     String dayNameArabic = DateFormat('EEEE', 'ar').format(now);
