@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jhijri/_src/_jHijri.dart';
-import 'package:myclaender/core/sqllite/db.dart';
-import 'package:myclaender/widgets/calender_widget.dart';
-import 'package:myclaender/widgets/calender_widget_note.dart';
+import 'package:untitled/core/sqllite/db.dart';
+import 'package:untitled/widgets/calender_widget.dart';
+import 'package:untitled/widgets/calender_widget_note.dart';
 
 import '../Theme/color.dart';
 import '../core/man_widget/mytext.dart';
@@ -45,8 +45,8 @@ class _List_noteState extends State<List_note> {
 
                       },
                       itemBuilder: (BuildContext context, int index){
-                        final jh3 = JHijri(fDate:DateTime.parse( snapshot.data![index]['dete2'].toString()));
-                        DateTime jh2 =DateTime.parse( snapshot.data![index]['dete2'].toString());
+                        final jh3 = JHijri(fDate:DateTime.parse( snapshot.data![index]['dete'].toString()));
+                        DateTime jh2 =DateTime.parse( snapshot.data![index]['dete'].toString());
 
                         return calender_widget_note(          hijriyear: jh3.hijri.year.toString(),
                           hijridayName: jh3.hijri.dayName,

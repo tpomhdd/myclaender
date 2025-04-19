@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:tpo_weather/Services/service.dart';
-import 'package:tpo_weather/theme/Style.dart';
+import 'package:untitled/Services/service.dart';
+import 'package:untitled/theme/Style.dart';
+
 
 class Locations extends StatefulWidget {
   Locations({this.locationWeather});

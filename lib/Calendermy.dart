@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:myclaender/core/man_widget/Btn.dart';
-import 'package:myclaender/core/man_widget/mytext.dart';
-import 'package:myclaender/core/man_widget/textfiled.dart';
-import 'package:myclaender/core/mydata.dart';
-import 'package:myclaender/core/sqllite/db.dart';
+import 'package:untitled/core/man_widget/Btn.dart';
+import 'package:untitled/core/man_widget/mytext.dart';
+import 'package:untitled/core/man_widget/textfiled.dart';
+import 'package:untitled/core/mydata.dart';
+import 'package:untitled/core/sqllite/db.dart';
 import 'dart:core';
 import 'package:table_calendar/table_calendar.dart';
 

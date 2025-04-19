@@ -22,7 +22,7 @@ width: double.infinity,
           borderRadius: BorderRadius.circular(20)
       ),
       child:   MaterialButton(
-      child: Text(widget.text,style: TextStyle(color: Colors.white,fontSize: 20),),
+      child: Text(widget.text,style: TextStyle(color: Colors.white,fontSize: 14),),
 
 
       onPressed: widget.onPressed,

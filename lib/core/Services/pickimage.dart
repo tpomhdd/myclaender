@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:myclaender/core/app_color.dart';
-import 'package:myclaender/core/man_widget/mytext.dart';
-import 'package:myclaender/core/mydata.dart';
+import 'package:untitled/core/app_color.dart';
+import 'package:untitled/core/man_widget/mytext.dart';
+import 'package:untitled/core/mydata.dart';
 
 
 class upuimg extends StatefulWidget {

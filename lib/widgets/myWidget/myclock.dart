@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:one_clock/one_clock.dart';
 
 import '../../Theme/color.dart';
+
 import 'bottombar.dart';
 class myclocl extends StatefulWidget {
   const myclocl({Key? key, required this.title}) : super(key: key);
@@ -375,17 +376,22 @@ class _myclockState extends State<myclock> {
   Widget build(BuildContext context) {
     return Container(
       width: 900,
+
       color:  AppColor.primaryColor,
     child:
-                DigitalClock.dark(
-
-    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-    isLive: true,
-                  decoration: const BoxDecoration(color: AppColor.primaryColor, shape: BoxShape.rectangle, borderRadius: BorderRadius.all(Radius.zero)),
-
-                  showSeconds:true ,
-    datetime: dateTime,
-    ),
+    DigitalClock.dark(
+      padding: EdgeInsets.symmetric(horizontal: 70, vertical: 5),
+      isLive: true,
+      decoration: const BoxDecoration(
+        color: AppColor.primaryColor,
+        shape: BoxShape.rectangle,
+        borderRadius: BorderRadius.all(Radius.zero),
+      ),
+      showSeconds: true,
+      datetime: dateTime,
+      digitalClockTextColor: Colors.white, // لتحديد لون النص
+      textScaleFactor: 1.5, // لتحديد حجم النص
+    )
     );
   }
 }
@@ -412,7 +418,7 @@ class _cloockState extends State<cloock> {
               padding: const EdgeInsets.all(8.0),
               child: DigitalClock.dark(
 
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 5),
                 isLive: true,
                 decoration: const BoxDecoration(color: AppColor.primaryColor, shape: BoxShape.rectangle, borderRadius: BorderRadius.all(Radius.zero)),
 

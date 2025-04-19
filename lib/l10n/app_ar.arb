@@ -1,0 +1,81 @@
+{
+ "@@locale": "ar",
+ "hijri_month_1": "محرم",
+  "hijri_month_2": "صفر",
+  "hijri_month_3": "ربيع الأول",
+  "hijri_month_4": "ربيع الآخر",
+  "hijri_month_5": "جمادى الأولى",
+  "hijri_month_6": "جمادى الآخرة",
+  "hijri_month_7": "رجب",
+  "hijri_month_8": "شعبان",
+  "hijri_month_9": "رمضان",
+  "hijri_month_10": "شوال",
+  "hijri_month_11": "ذو القعدة",
+  "hijri_month_12": "ذو الحجة",
+
+     "voice_Memo": "المذكرات الصوتية",
+
+
+
+
+  "hijri_day_label": "Hijri Day: {day}",
+  "day_name_sunday": "الأحد",
+  "day_name_monday": "الاثنين",
+  "day_name_tuesday": "الثلاثاء",
+  "day_name_wednesday": "الأربعاء",
+  "day_name_thursday": "الخميس",
+  "day_name_friday": "الجمعة",
+  "day_name_saturday": "السبت",
+
+
+   "month_1": "كانون الثاني",
+   "month_2": "شباط",
+   "month_3": "آذار",
+   "month_4": "نيسان",
+   "month_5": "أيار",
+   "month_6": "حزيران",
+   "month_7": "تموز",
+   "month_8": "آب",
+   "month_9": "أيلول",
+   "month_10": "تشرين الأول",
+   "month_11": "تشرين الثاني",
+   "month_12": "كانون الأول",
+
+  "calendar_title": "الروزنامة",
+  "note_subject": "موضوع التذكرة",
+  "save": "حفظ",
+  "go_to_date": "الذهاب إلى التاريخ",
+  "gregorian_calendar": "التقويم الميلادي",
+  "hijri_calendar": "التقويم الهجري",
+  "back": "عودة",
+  "next_day": "اليوم التالي",
+  "previous_day": "اليوم السابق",
+  "greetings": "مع تحيات محمد المصري",
+  "settings": "اعدادات",
+  "add_note": "اضافة تذكرة",
+  "reminder_log": "سجل التذاكر",
+  "add_page": "اضافة صفحة للمفكرة",
+  "notebook_pages": "صفحات المفكرة",
+  "time_remaining": "الوقت المتبقي لأذان",
+  "no_upcoming_prayer": "لا توجد صلاة قادمة لليوم",
+  "prayer_fajr": "الفجر",
+  "prayer_sunrise": "الشروق",
+  "prayer_dhuhr": "الظهر",
+  "prayer_asr": "العصر",
+  "prayer_maghrib": "المغرب",
+  "prayer_isha": "العشاء",
+  "change_Language":"تغيير اللغة",
+"prayer":"الصلاة",
+
+ "temperature": "درجة الحرارة",
+"time_speech": "نطق الوقت",
+
+
+"celsius": "درجة مئوية",
+"list_note": "سجل التذاكر",
+
+
+     "weather_condition": " حالة الطقس"
+
+
+}

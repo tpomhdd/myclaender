@@ -1,0 +1,45 @@
+{
+  "@@locale": "ku",
+  "hijri_month_1": "Muharrem",
+  "hijri_month_2": "Sefer",
+  "hijri_month_3": "Rebî’ê yekem",
+  "hijri_month_4": "Rebî’ê duyem",
+  "hijri_month_5": "Cemaziyel-evvel",
+  "hijri_month_6": "Cemaziyel-ahir",
+  "hijri_month_7": "Rejeb",
+  "hijri_month_8": "Şaban",
+  "hijri_month_9": "Ramazan",
+  "hijri_month_10": "Şewal",
+  "hijri_month_11": "Zîqade",
+  "hijri_month_12": "Zilhîcce",
+
+  "hijri_day_label": "Rojê Hejirî: {day}",
+  "day_name_sunday": "Yekşem",
+  "day_name_monday": "Duşem",
+  "day_name_tuesday": "Sêşem",
+  "day_name_wednesday": "Çarşem",
+  "day_name_thursday": "Pêncşem",
+  "day_name_friday": "În",
+  "day_name_saturday": "Şemî",
+
+  "month_1": "Çile",
+  "month_2": "Sibat",
+  "month_3": "Adar",
+  "month_4": "Nîsan",
+  "month_5": "Gulan",
+  "month_6": "Hezîran",
+  "month_7": "Tîrmeh",
+  "month_8": "Tebax",
+  "month_9": "Îlon",
+  "month_10": "Cotmeh",
+  "month_11": "Mijdar",
+  "month_12": "Kanûn",
+
+
+
+"temperature": "Temperatur",
+
+
+  "calendar_title": "Salname",
+  "settings": "Mîheng"
+}

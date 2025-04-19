@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myclaender/core/man_widget/mytext.dart';
-import 'package:myclaender/widgets/myWidget/constant.dart';
+import 'package:untitled/core/man_widget/mytext.dart';
+import 'package:untitled/widgets/myWidget/constant.dart';
 class test extends StatefulWidget {
   const test({Key? key}) : super(key: key);
 

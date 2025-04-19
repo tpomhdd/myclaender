@@ -1,0 +1,84 @@
+{
+
+    "@@locale": "en",
+"temperature": "Temperature",
+
+
+  "hijri_month_1": "Muharram",
+
+"voice_Memo": "Voice Memo",
+
+   "hijri_month_2": "Safar",
+  "hijri_month_3": "Rabi' al-Awwal",
+  "hijri_month_4": "Rabi' al-Thani",
+  "hijri_month_5": "Jumada al-Awwal",
+  "hijri_month_6": "Jumada al-Thani",
+  "hijri_month_7": "Rajab",
+  "hijri_month_8": "Sha'ban",
+  "hijri_month_9": "Ramadan",
+  "hijri_month_10": "Shawwal",
+  "hijri_month_11": "Dhu al-Qi'dah",
+  "hijri_month_12": "Dhu al-Hijjah",
+
+"month_1": "January",
+  "month_2": "February",
+  "month_3": "March",
+  "month_4": "April",
+  "month_5": "May",
+  "month_6": "June",
+  "month_7": "July",
+  "month_8": "August",
+  "month_9": "September",
+  "month_10": "October",
+  "month_11": "November",
+  "month_12": "December",
+
+    "hijri_day_label": "Hijri Day: {day}",
+      "day_name_sunday": "Sunday",
+      "day_name_monday": "Monday",
+      "day_name_tuesday": "Tuesday",
+      "day_name_wednesday": "Wednesday",
+      "day_name_thursday": "Thursday",
+      "day_name_friday": "Friday",
+      "day_name_saturday": "Saturday",
+
+
+
+  "app_title": "Calendar",
+  "note_subject": "Note Subject",
+  "save": "Save",
+  "go_to_date": "Go to Date",
+  "gregorian_calendar": "Gregorian Calendar",
+  "hijri_calendar": "Hijri Calendar",
+  "back": "Back",
+  "next_day": "Next Day",
+  "previous_day": "Previous Day",
+  "greetings": "Best regards, Mohamed Al-Masry",
+  "settings": "Settings",
+  "add_note": "Add Reminder",
+  "reminder_log": "Reminder Log",
+  "add_page": "Add Notebook Page",
+  "notebook_pages": "Notebook Pages",
+  "time_remaining": "Time remaining for  prayer: ",
+  "no_upcoming_prayer": "No upcoming prayer for today.",
+  "prayer_fajr": "Fajr",
+  "prayer_sunrise": "Sunrise",
+  "prayer_dhuhr": "Dhuhr",
+  "prayer_asr": "Asr",
+  "prayer_maghrib": "Maghrib",
+  "prayer_isha": "Isha",
+  "change_Language":"Change Language",
+  "prayer":"prayer",
+ "celsius": "Celsius",
+
+
+  "list_note": "Ticket Log",
+
+"time_speech": "Time Speech",
+
+
+       "weather_condition": "Weather Condition "
+
+
+
+}

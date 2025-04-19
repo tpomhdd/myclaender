@@ -1,7 +1,7 @@
 
 
 
-import 'package:myclaender/core/get_loaction.dart';
+import 'package:untitled/core/get_loaction.dart';
 
 
 

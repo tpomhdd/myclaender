@@ -5,7 +5,8 @@ final TextEditingController? controller;
 final String text;
 final bool? pass;
 final Color mycolor;
-const MyTextField({Key? key, this.controller,required  this.text,this.pass, required this.mycolor}) : super(key: key);
+final double? sizefont;
+const MyTextField({Key? key, this.controller,required  this.text,this.pass, required this.mycolor, this.sizefont}) : super(key: key);
 
   @override
   State<MyTextField> createState() => _MyTextFieldState();
@@ -25,6 +26,7 @@ decoration: BoxDecoration(
     child: TextFormField(
     controller: widget.controller,
       obscureText: widget.pass == null ||  widget.pass  == false  ? false : true,
+      style: TextStyle(fontSize: widget.sizefont),
 
 
 

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 
-import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myclaender/CountryCityPicker.dart';
-import 'package:myclaender/widgets/myWidget/myclock.dart';
-import 'package:myclaender/widgets/tap_settings.dart';
+import 'package:untitled/CountryCityPicker.dart';
+import 'package:untitled/widgets/myWidget/myclock.dart';
+import 'package:untitled/widgets/tap_settings.dart';
 
 import '../List_note.dart';
 import '../Theme/color.dart';
@@ -155,6 +155,57 @@ class calender_widget_note extends StatelessWidget {
             ),
           ),
         )
+      ],
+    );
+  }
+}
+
+class myrownote extends StatelessWidget {
+  final String text1;
+  final String text2;
+  final Color textColor;
+  final FontWeight? fontWeight;
+  const myrownote(
+      {Key? key,
+        required this.text1,
+        required this.text2,
+        required this.textColor,
+        this.fontWeight})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Center(
+              child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border:
+                      Border.all(color: AppColor.primaryColor, width: 1)),
+                  child: Center(
+                      child: MyText(
+                        color: textColor,
+                        text: text1,
+                        size: 22,
+                        fontWeight: fontWeight,
+                      )))),
+        ),
+        Expanded(
+          child: Center(
+              child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border:
+                      Border.all(color: AppColor.primaryColor, width: 1)),
+                  child: Center(
+                      child: MyText(
+                          color: textColor,
+                          text: text2,
+                          size: 22,
+                          fontWeight: fontWeight)))),
+        ),
       ],
     );
   }

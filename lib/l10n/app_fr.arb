@@ -1,19 +1,86 @@
 {
-  "app_name": "Calendrier",
-  "weather_status": "Condition Météo",
-  "fajr": "Fajr",
-  "sunrise": "Lever du soleil",
-  "dhuhr": "Dhouhr",
-  "asr": "Asr",
-  "maghrib": "Maghreb",
-  "isha": "Icha",
-  "remaining_time_dhuhr": "Temps restant pour l'Adhan du Dhouhr",
+  "@@locale": "fr",
+  "hijri_month_1": "Muharram",
+  "hijri_month_2": "Safar",
+  "hijri_month_3": "Rabi' al-Awwal",
+  "hijri_month_4": "Rabi' al-Thani",
+  "hijri_month_5": "Jumada al-Awwal",
+  "hijri_month_6": "Jumada al-Thani",
+  "hijri_month_7": "Rajab",
+  "hijri_month_8": "Sha'ban",
+
+ "voice_Memo":    "Sesli Not",
+
+  "hijri_month_9": "Ramadan",
+  "hijri_month_10": "Shawwal",
+  "hijri_month_11": "Dhu al-Qi'dah",
+  "hijri_month_12": "Dhu al-Hijjah",
+
+  "app_title": "Calendrier",
+  "add_note": "Ajouter un rappel",
+  "save": "Enregistrer",
+  "go_to_date": "Aller à la date",
+  "gregorian_calendar": "Calendrier grégorien",
+  "hijri_calendar": "Calendrier Hijri",
+  "back": "Retour",
   "next_day": "Jour suivant",
   "previous_day": "Jour précédent",
-  "greetings": "Avec les salutations de Mohamed Al-Masry",
+  "greetings": "Cordialement, Mohamed Al-Masry",
   "settings": "Paramètres",
-  "go_to_date": "Aller à la date",
-  "day": "Jour",
-  "hijri_date": "Date Hijri",
-  "gregorian_date": "Date Grégorienne"
+  "reminder_log": "Journal des rappels",
+  "add_page": "Ajouter une page de carnet",
+  "notebook_pages": "Pages du carnet",
+
+  "month_1": "Janvier",
+  "month_2": "Février",
+  "month_3": "Mars",
+  "month_4": "Avril",
+  "month_5": "Mai",
+  "month_6": "Juin",
+  "month_7": "Juillet",
+  "month_8": "Août",
+  "month_9": "Septembre",
+  "month_10": "Octobre",
+  "month_11": "Novembre",
+  "month_12": "Décembre",
+
+  "day_name_sunday": "Dimanche",
+  "day_name_monday": "Lundi",
+  "day_name_tuesday": "Mardi",
+  "day_name_wednesday": "Mercredi",
+  "day_name_thursday": "Jeudi",
+  "day_name_friday": "Vendredi",
+  "day_name_saturday": "Samedi",
+
+  "time_remaining": "Temps restant pour la prière de ",
+  "player": "joueur ",
+  "no_upcoming_prayer": "Aucune prière à venir pour aujourd'hui.",
+
+  "prayer_fajr": "Fajr",
+  "prayer_sunrise": "Lever du soleil",
+  "prayer_dhuhr": "Dhuhr",
+  "prayer_asr": "Asr",
+  "prayer_maghrib": "Maghrib",
+  "prayer_isha": "Isha",
+    "change_Language":"Changer de langue",
+
+    "prayer":"prayer",
+
+"temperature": "Température",
+
+
+"celsius": "Celsius",
+
+
+
+"time_speech": "Annonce de l'heure",
+
+  "list_note": "Journal des billets",
+
+
+
+      "weather_condition": "Condition météorologique"
+
+
+
 }

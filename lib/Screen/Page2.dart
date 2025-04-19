@@ -1,9 +1,14 @@
+
+
+
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:tpo_weather/man_widget/mytext.dart';
+import 'package:untitled/man_widget/mytext.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import '../Services/add_location_weather.dart';
+import '../l10n/app_localizations.dart';
+
 class Page2 extends StatefulWidget {
   const Page2({Key? key}) : super(key: key);
 
@@ -12,11 +17,11 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> {
-  int temperature=0;
-  String condition='';
-  int humidity=0;
-  String country='';
-  String city='';
+  int temperature = 0;
+  String condition = '';
+  int humidity = 0;
+  String country = '';
+  String city = '';
   WeatherModel weatherModel = WeatherModel();
 
   void initState() {
@@ -24,6 +29,7 @@ class _Page2State extends State<Page2> {
     getLocationData();
     _determinePosition();
   }
+
   /// variable weatherData contain response from the API
   /// to fetch data check the response to get the way the data structured
   getLocationData() async {
@@ -35,634 +41,89 @@ class _Page2State extends State<Page2> {
       city = weatherData['name'];
       double temp = weatherData['main']['temp'];
       temperature = temp.toInt();
-
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
 
-    return Scaffold(
-backgroundColor: Colors.black,      body: SingleChildScrollView(
-  child:   Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          crossAxisAlignment: CrossAxisAlignment.center,
-
-  children: [
-
-     Container(
-
-       height: 200,
-
-      width: 200,
-
-      decoration: BoxDecoration(
-
-          image: DecorationImage(image: AssetImage('img/img.png',))
-
-      ),
-
-    ),
-
-
-
-
-
-
-
-    Padding(
-
+    return Padding(
       padding: const EdgeInsets.all(8.0),
-
-      child: Column(
-
+      child: Row(
         children: [
-
-          Padding(
-
-            padding: const EdgeInsets.all(8.0),
-
+          Expanded(
+            flex: 2,
+              child: Column(
+                children: [
+                  Image.asset(
+            'assets/11.png',
+            width: 55,
+            height: 55,
+          ),
+                MyText(color: Colors.black, text: localizations.weather_condition, size: 12)],
+              )),
+          Expanded(
+            flex: 5,
             child: Row(
-
-              mainAxisAlignment: MainAxisAlignment.center,
-
-              crossAxisAlignment: CrossAxisAlignment.center,
-
-              mainAxisSize: MainAxisSize.max,
-
               children: [
-
-
-
-
-
-
-
-                Padding(
-
-                  padding: const EdgeInsets.all(1.0),
-
-                  child: Container(
-
-                      alignment: Alignment.center,
-
-                      width: MediaQuery.of(context).size.width-100,
-
-                      decoration: BoxDecoration(
-
-
-
-                          border: Border.all(color: Colors.white,width: 1)),
-
-                      child: Padding(
-
-                        padding: const EdgeInsets.all(2.0),
-
-                        child: MyText(color: Colors.white, text: '${city}', size: 40),
-
-                      )),
-
-                ),
-
-
-
-
-
-
-
-              ],
-
-            ),
-
-          ),
-
-
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(8.0),
-
-            child: Row(
-
-
-
-              mainAxisAlignment: MainAxisAlignment.center,
-
-              crossAxisAlignment: CrossAxisAlignment.center,            children: [
-
-              new CircularPercentIndicator(
-
-                radius: 100.0,
-
-                startAngle: 6,
-
-                animation: true,
-
-                animationDuration: 5000,
-
-
-
-                lineWidth: 15.0,
-
-                percent: 1.0,
-
-                center: new   AnimatedFlipCounter(
-
-                  duration: Duration(seconds: 3),
-
-                  value: temperature,
-
-                  fractionDigits: 2, // decimal precision
-
-                  suffix: "°",
-
-
-
-                  textStyle: TextStyle(
-
-                    fontSize: 40,
-
-                    color:  temperature <= 10 ? Colors.blue : Colors.green,
-
-
-
-
-
-
-
-
-
+                new CircularPercentIndicator(
+                  radius: 30.0,
+                  startAngle: 6,
+                  animation: true,
+                  animationDuration: 5000,
+                  lineWidth: 2.0,
+                  percent: 1.0,
+                  center: new AnimatedFlipCounter(
+                    duration: Duration(seconds: 3),
+
+                    value: temperature,
+
+                    fractionDigits: 2, // decimal precision
+
+                    suffix: "°",
+
+                    textStyle: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      color: temperature <= 10 ? Colors.blue : Colors.green,
+                    ),
                   ),
-
+                  progressColor: temperature <= 10 ? Colors.blue : Colors.green,
                 ),
-
-
-
-                progressColor: temperature <= 10 ? Colors.blue : Colors.green,
-
-              ),
-
-
-
-            ],
-
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: Container(
+                            alignment: Alignment.center,
+                            //width: MediaQuery.of(context).size.width - 100,
+                            decoration: BoxDecoration(),
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: MyText(
+                                  color: Colors.black,
+                                  text: '${city}',
+                                  size: 20),
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-
           ),
-
-
-
         ],
-
       ),
-
-    ),
-
-
-
-  SizedBox(height: 56,),
-
-    Padding(
-
-      padding: const EdgeInsets.all(8.0),
-
-      child: Row(
-
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        mainAxisSize: MainAxisSize.max,
-
-        children: [
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: 'temperature', size: 20),
-
-                )),
-
-          ),
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: ' $temperature°  ',
-
-                       size: 20),
-
-                )),
-
-          ),
-
-
-
-
-
-
-
-
-
-        ],
-
-      ),
-
-    ),
-
-
-
-    Padding(
-
-      padding: const EdgeInsets.all(8.0),
-
-      child: Row(
-
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        mainAxisSize: MainAxisSize.max,
-
-        children: [
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: ' condition', size: 20),
-
-                )),
-
-          ),
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: '${condition}', size: 20),
-
-                )),
-
-          ),
-
-
-
-
-
-
-
-
-
-        ],
-
-      ),
-
-    ),
-
-    Padding(
-
-      padding: const EdgeInsets.all(8.0),
-
-      child: Row(
-
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        mainAxisSize: MainAxisSize.max,
-
-        children: [
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: 'humidity', size: 20),
-
-                )),
-
-          ),
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: '${humidity}', size: 20),
-
-                )),
-
-          ),
-
-
-
-
-
-
-
-
-
-        ],
-
-      ),
-
-    ),
-
-    Padding(
-
-      padding: const EdgeInsets.all(8.0),
-
-      child: Row(
-
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        mainAxisSize: MainAxisSize.max,
-
-        children: [
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: ' condition', size: 20),
-
-                )),
-
-          ),
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: '${condition}', size: 20),
-
-                )),
-
-          ),
-
-
-
-
-
-
-
-
-
-        ],
-
-      ),
-
-    ),
-
-    Padding(
-
-      padding: const EdgeInsets.all(8.0),
-
-      child: Row(
-
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        mainAxisSize: MainAxisSize.max,
-
-        children: [
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: 'country', size: 20),
-
-                )),
-
-          ),
-
-
-
-          Padding(
-
-            padding: const EdgeInsets.all(1.0),
-
-            child: Container(
-
-                alignment: Alignment.center,
-
-                width: MediaQuery.of(context).size.width/3,
-
-                decoration: BoxDecoration(
-
-
-
-                    border: Border.all(color: Colors.white,width: 1)),
-
-                child: Padding(
-
-                  padding: const EdgeInsets.all(2.0),
-
-                  child: MyText(color: Colors.white, text: '${country}', size: 20),
-
-                )),
-
-          ),
-
-
-
-
-
-
-
-
-
-        ],
-
-      ),
-
-    ),
-
-
-
-
-
-
-
-  ],
-
-        ),
-),
     );
   }
 }
+
 Future<Position> _determinePosition() async {
   bool serviceEnabled;
   LocationPermission permission;

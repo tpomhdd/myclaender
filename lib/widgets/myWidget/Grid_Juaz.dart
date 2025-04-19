@@ -1,12 +1,12 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_svg/svg.dart';
-// import 'package:myclaender/core/app_color.dart';
-// import 'package:myclaender/providers/bookmark.dart';
-// import 'package:myclaender/widgets/horizental_divider.dart';
-// import 'package:myclaender/widgets/marker.dart';
+// import 'package:untitled/core/app_color.dart';
+// import 'package:untitled/providers/bookmark.dart';
+// import 'package:untitled/widgets/horizental_divider.dart';
+// import 'package:untitled/widgets/marker.dart';
 // import 'package:provider/provider.dart';
 //
-// import 'package:myclaender/widgets/myWidget/mystack.dart';
+// import 'package:untitled/widgets/myWidget/mystack.dart';
 //
 // import '../../providers/quran.dart';
 // import '../../providers/show_overlay_provider.dart';

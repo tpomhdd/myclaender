@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myclaender/Calendermy.dart';
+import 'package:untitled/Calendermy.dart';
 
-import 'package:myclaender/widgets/man_widget/mytext.dart';
-import 'package:myclaender/widgets/myWidget/myclock.dart';
+import 'package:untitled/widgets/man_widget/mytext.dart';
+import 'package:untitled/widgets/myWidget/myclock.dart';
 
 import '../../calendar.dart';
 
