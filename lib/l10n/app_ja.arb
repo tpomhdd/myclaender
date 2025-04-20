@@ -15,6 +15,8 @@
 
 "voice_Memo":     "ボイスメモ",
 
+ "decrease_hijri_day": "ヒジュラ日を減らす",
+    "increase_hijri_day": "ヒジュラ日を増やす",
 
   "hijri_day_label": "ヒジュリ暦の日: {day}",
   "day_name_sunday": "日曜日",

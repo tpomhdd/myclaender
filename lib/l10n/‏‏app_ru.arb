@@ -88,6 +88,8 @@
 "time_speech": "Озвучивание времени",
 
   "list_note": "Журнал билетов",
+   "decrease_hijri_day": "Уменьшить хиджру день",
+    "increase_hijri_day": "Увеличить хиджру день",
 
   "weather_condition": "Погодные условия"
 }

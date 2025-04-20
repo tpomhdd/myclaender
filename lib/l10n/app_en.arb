@@ -7,6 +7,9 @@
   "hijri_month_1": "Muharram",
 
 "voice_Memo": "Voice Memo",
+    "decrease_hijri_day": "Decrease Hijri Day",
+    "increase_hijri_day": "Increase Hijri Day",
+
 
    "hijri_month_2": "Safar",
   "hijri_month_3": "Rabi' al-Awwal",
@@ -72,7 +75,7 @@
  "celsius": "Celsius",
 
 
-  "list_note": "Ticket Log",
+  "list_note": "Hijri Day",
 
 "time_speech": "Time Speech",
 

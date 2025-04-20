@@ -6,6 +6,8 @@
   "hijri_month_4": "ربيع الآخر",
   "hijri_month_5": "جمادى الأولى",
   "hijri_month_6": "جمادى الآخرة",
+    "decrease_hijri_day": "إنقاص يوم هجري",
+    "increase_hijri_day": "زيادة يوم هجري",
   "hijri_month_7": "رجب",
   "hijri_month_8": "شعبان",
   "hijri_month_9": "رمضان",
@@ -68,10 +70,12 @@
 "prayer":"الصلاة",
 
  "temperature": "درجة الحرارة",
-"time_speech": "نطق الوقت",
+"time_speech": "يوم هجري",
 
 
 "celsius": "درجة مئوية",
+
+
 "list_note": "سجل التذاكر",
 
 
@@ -79,3 +83,4 @@
 
 
 }
+

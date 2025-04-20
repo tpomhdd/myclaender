@@ -89,6 +89,8 @@
 
 
 "celsius": "Celsius",
+    "decrease_hijri_day": "Hijri-Tag verringern",
+    "increase_hijri_day": "Hijri-Tag erhöhen",
  "weather_condition": "Wetterbedingungen"
 
 }

@@ -28,6 +28,7 @@ import 'package:permission_handler/permission_handler.dart';
 import '../List_note.dart';
 import '../Services/SettingsService.dart';
 import '../Theme/color.dart';
+import '../core/AdManager.dart';
 import '../core/man_widget/mytext.dart';
 import '../calendar.dart';
 import 'package:intl/intl.dart';
@@ -425,6 +426,9 @@ class _SetteingState extends State<Setteing> {
     final localizations = AppLocalizations.of(context)!;
     return InkWell(
       onTap: () {
+        AdManager.loadInterstitialAd(() {
+          print("تم إغلاق الإعلان بنجاح");
+        });
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
@@ -488,13 +492,14 @@ class _SetteingState extends State<Setteing> {
                                     builder: (context) => List_note()));
                           },
                         ),
-                        _buildSettingItem(
-                          icon: Icons.add_circle_outline,
-                          text: localizations.add_page,
-                          onTap: () {
-                            Get.to(DailyPlannerScreen(dateTime:widget.dateTime));
-                          },
-                        ),
+                        // _buildSettingItem(
+                        //   icon: Icons.add_circle_outline,
+                        //   text: localizations.add_page,
+                        //   onTap: () {
+                        //     Get.to(DailyPlannerScreen(dateTime:widget.dateTime));
+                        //   },
+                        // ),
+                        //
                         _buildSettingItem(
                           icon: Icons.book,
                           text: localizations.notebook_pages,
@@ -502,13 +507,14 @@ class _SetteingState extends State<Setteing> {
                             Get.to(PagesNote());
                           },
                         ),
-                        _buildSettingItem(
-                          icon: Icons.calendar_today,
-                          text: localizations.hijri_calendar,
-                          onTap: () {
-                            Get.to(HijriDateScreen());
-                          },
-                        ),
+                        // _buildSettingItem(
+                        //   icon: Icons.calendar_today,
+                        //   text: localizations.hijri_calendar,
+                        //   onTap: () {
+                        //     Get.to(HijriDateScreen());
+                        //   },
+                        // ),
+
                         _buildSettingItem(
                           icon: Icons.list,
                           text: localizations.list_note,
@@ -746,7 +752,7 @@ class _SetteingState extends State<Setteing> {
                           ),
 
                           child: Obx(() => SwitchListTile(
-                            title: Text(' إضافة يوم هجري'),
+                            title: Text(localizations.increase_hijri_day),
                             value: settings.addDay.value,
                             onChanged: (val) {
                               settings.addDay(val);
@@ -774,7 +780,7 @@ class _SetteingState extends State<Setteing> {
                           ),
 
                           child: Obx(() => SwitchListTile(
-                            title: Text('انقاص يوم هجري'),
+                            title: Text(localizations.decrease_hijri_day),
                             value: settings.subDay.value,
                             onChanged: (val) {
                               setState(() {

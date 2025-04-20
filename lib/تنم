@@ -1,0 +1,26 @@
+{
+  "en": {
+    "decrease_hijri_day": "Decrease Hijri Day",
+    "increase_hijri_day": "Increase Hijri Day"
+  },
+  "ar": {
+  },
+  "fr": {
+  },
+  "tr": {
+    "decrease_hijri_day": "Hicri günü azalt",
+    "increase_hijri_day": "Hicri günü artır"
+  },
+  "ja": {
+    "decrease_hijri_day": "ヒジュラ日を減らす",
+    "increase_hijri_day": "ヒジュラ日を増やす"
+  },
+  "de": {
+  },
+  "ku": {
+    "decrease_hijri_day": "Rojê Hijrî kêm bike",
+    "increase_hijri_day": "Rojê Hijrî zêde bike"
+  },
+  "ru": {
+  }
+}

@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Turkish (`tr`).
 class AppLocalizationsTr extends AppLocalizations {
@@ -12,6 +16,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get voice_Memo => 'Sesli Not';
+
+  @override
+  String get decrease_hijri_day => 'Hicri günü azalt';
+
+  @override
+  String get increase_hijri_day => 'Hicri günü artır';
 
   @override
   String get hijri_month_2 => 'Safer';
@@ -83,7 +93,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get month_12 => 'Aralık';
 
   @override
-  String get hijri_day_label => 'Hijri Day: {day}';
+  String hijri_day_label(Object day) {
+    return 'Hijri Day: $day';
+  }
 
   @override
   String get day_name_sunday => 'Pazar';
@@ -152,7 +164,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get notebook_pages => 'Defter Sayfaları';
 
   @override
-  String get time_remaining => 'Kalan süre {prayer} namazı için: {time}';
+  String time_remaining(Object prayer, Object time) {
+    return 'Kalan süre $prayer namazı için: $time';
+  }
 
   @override
   String get no_upcoming_prayer => 'Bugün için gelecek namaz bulunmamaktadır.';

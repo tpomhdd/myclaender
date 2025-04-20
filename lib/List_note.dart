@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jhijri/_src/_jHijri.dart';
+import 'package:untitled/core/AdManager.dart';
 import 'package:untitled/core/sqllite/db.dart';
 import 'package:untitled/widgets/calender_widget.dart';
 import 'package:untitled/widgets/calender_widget_note.dart';
@@ -14,6 +15,14 @@ class List_note extends StatefulWidget {
 }
 
 class _List_noteState extends State<List_note> {
+@override
+  void initState() {
+  AdManager.loadInterstitialAd(() {
+    print("تم إغلاق الإعلان بنجاح");
+  });
+  // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     List<String>months=[

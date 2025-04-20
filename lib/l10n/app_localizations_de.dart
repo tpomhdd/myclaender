@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for German (`de`).
 class AppLocalizationsDe extends AppLocalizations {
@@ -12,6 +16,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get voice_Memo => 'Sprachnotiz';
+
+  @override
+  String get decrease_hijri_day => 'Hijri-Tag verringern';
+
+  @override
+  String get increase_hijri_day => 'Hijri-Tag erhöhen';
 
   @override
   String get hijri_month_2 => 'Safar';
@@ -83,7 +93,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get month_12 => 'Dezember';
 
   @override
-  String get hijri_day_label => 'Hijri-Tag: {day}';
+  String hijri_day_label(Object day) {
+    return 'Hijri-Tag: $day';
+  }
 
   @override
   String get day_name_sunday => 'Sonntag';
@@ -152,7 +164,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get notebook_pages => 'Notizbuchseiten';
 
   @override
-  String get time_remaining => 'Verbleibende Zeit bis zum Gebetsruf';
+  String time_remaining(Object prayer, Object time) {
+    return 'Verbleibende Zeit bis zum Gebetsruf';
+  }
 
   @override
   String get no_upcoming_prayer => 'Kein bevorstehendes Gebet für heute';

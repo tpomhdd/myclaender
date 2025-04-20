@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Arabic (`ar`).
 class AppLocalizationsAr extends AppLocalizations {
@@ -12,6 +16,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get voice_Memo => 'المذكرات الصوتية';
+
+  @override
+  String get decrease_hijri_day => 'إنقاص يوم هجري';
+
+  @override
+  String get increase_hijri_day => 'زيادة يوم هجري';
 
   @override
   String get hijri_month_2 => 'صفر';
@@ -83,7 +93,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get month_12 => 'كانون الأول';
 
   @override
-  String get hijri_day_label => 'Hijri Day: {day}';
+  String hijri_day_label(Object day) {
+    return 'Hijri Day: $day';
+  }
 
   @override
   String get day_name_sunday => 'الأحد';
@@ -152,7 +164,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get notebook_pages => 'صفحات المفكرة';
 
   @override
-  String get time_remaining => 'الوقت المتبقي لأذان';
+  String time_remaining(Object prayer, Object time) {
+    return 'الوقت المتبقي لأذان';
+  }
 
   @override
   String get no_upcoming_prayer => 'لا توجد صلاة قادمة لليوم';
@@ -188,7 +202,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get list_note => 'سجل التذاكر';
 
   @override
-  String get time_speech => 'نطق الوقت';
+  String get time_speech => 'يوم هجري';
 
   @override
   String get weather_condition => ' حالة الطقس';

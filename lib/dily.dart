@@ -22,10 +22,10 @@ DailyPlannerScreen({super.key, required this.dateTime});
   @override
 
   Widget build(BuildContext context) {
-
     AdManager.loadInterstitialAd(() {
       print("تم إغلاق الإعلان بنجاح");
     });
+
     DateTime now = dateTime;
     String dayName = DateFormat('EEEE', 'en').format(now);
     String dayNameArabic = DateFormat('EEEE', 'ar').format(now);

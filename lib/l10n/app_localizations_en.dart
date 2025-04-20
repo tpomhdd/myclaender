@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for English (`en`).
 class AppLocalizationsEn extends AppLocalizations {
@@ -12,6 +16,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get voice_Memo => 'Voice Memo';
+
+  @override
+  String get decrease_hijri_day => 'Decrease Hijri Day';
+
+  @override
+  String get increase_hijri_day => 'Increase Hijri Day';
 
   @override
   String get hijri_month_2 => 'Safar';
@@ -83,7 +93,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get month_12 => 'December';
 
   @override
-  String get hijri_day_label => 'Hijri Day: {day}';
+  String hijri_day_label(Object day) {
+    return 'Hijri Day: $day';
+  }
 
   @override
   String get day_name_sunday => 'Sunday';
@@ -152,7 +164,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notebook_pages => 'Notebook Pages';
 
   @override
-  String get time_remaining => 'Time remaining for  prayer: ';
+  String time_remaining(Object prayer, Object time) {
+    return 'Time remaining for  prayer: ';
+  }
 
   @override
   String get no_upcoming_prayer => 'No upcoming prayer for today.';
@@ -185,7 +199,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get celsius => 'Celsius';
 
   @override
-  String get list_note => 'Ticket Log';
+  String get list_note => 'Hijri Day';
 
   @override
   String get time_speech => 'Time Speech';

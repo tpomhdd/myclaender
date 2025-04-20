@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Russian (`ru`).
 class AppLocalizationsRu extends AppLocalizations {
@@ -12,6 +16,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get voice_Memo => 'Голосовая заметка';
+
+  @override
+  String get decrease_hijri_day => 'Уменьшить хиджру день';
+
+  @override
+  String get increase_hijri_day => 'Увеличить хиджру день';
 
   @override
   String get hijri_month_2 => 'Сафар';
@@ -83,7 +93,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get month_12 => 'Декабрь';
 
   @override
-  String get hijri_day_label => 'Хиджри день: {day}';
+  String hijri_day_label(Object day) {
+    return 'Хиджри день: $day';
+  }
 
   @override
   String get day_name_sunday => 'Воскресенье';
@@ -152,7 +164,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get notebook_pages => 'Страницы блокнота';
 
   @override
-  String get time_remaining => 'Оставшееся время до азана';
+  String time_remaining(Object prayer, Object time) {
+    return 'Оставшееся время до азана';
+  }
 
   @override
   String get no_upcoming_prayer => 'Нет предстоящей молитвы на сегодня';

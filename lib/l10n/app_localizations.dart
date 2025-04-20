@@ -14,6 +14,8 @@ import 'app_localizations_ku.dart';
 import 'app_localizations_ru.dart';
 import 'app_localizations_tr.dart';
 
+// ignore_for_file: type=lint
+
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
 ///
@@ -122,6 +124,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Voice Memo'**
   String get voice_Memo;
+
+  /// No description provided for @decrease_hijri_day.
+  ///
+  /// In en, this message translates to:
+  /// **'Decrease Hijri Day'**
+  String get decrease_hijri_day;
+
+  /// No description provided for @increase_hijri_day.
+  ///
+  /// In en, this message translates to:
+  /// **'Increase Hijri Day'**
+  String get increase_hijri_day;
 
   /// No description provided for @hijri_month_2.
   ///
@@ -265,7 +279,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Hijri Day: {day}'**
-  String get hijri_day_label;
+  String hijri_day_label(Object day);
 
   /// No description provided for @day_name_sunday.
   ///
@@ -403,7 +417,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Time remaining for  prayer: '**
-  String get time_remaining;
+  String time_remaining(Object prayer, Object time);
 
   /// No description provided for @no_upcoming_prayer.
   ///
@@ -468,7 +482,7 @@ abstract class AppLocalizations {
   /// No description provided for @list_note.
   ///
   /// In en, this message translates to:
-  /// **'Ticket Log'**
+  /// **'Hijri Day'**
   String get list_note;
 
   /// No description provided for @time_speech.

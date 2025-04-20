@@ -75,6 +75,8 @@
 "time_speech": "Zaman Konuşması",
 
   "list_note": "Bilet Günlüğü",
+    "decrease_hijri_day": "Hicri günü azalt",
+    "increase_hijri_day": "Hicri günü artır",
 
 
 

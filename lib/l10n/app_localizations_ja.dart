@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for Japanese (`ja`).
 class AppLocalizationsJa extends AppLocalizations {
@@ -12,6 +16,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get voice_Memo => 'ボイスメモ';
+
+  @override
+  String get decrease_hijri_day => 'ヒジュラ日を減らす';
+
+  @override
+  String get increase_hijri_day => 'ヒジュラ日を増やす';
 
   @override
   String get hijri_month_2 => 'サファル';
@@ -83,7 +93,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get month_12 => '12月';
 
   @override
-  String get hijri_day_label => 'ヒジュリ暦の日: {day}';
+  String hijri_day_label(Object day) {
+    return 'ヒジュリ暦の日: $day';
+  }
 
   @override
   String get day_name_sunday => '日曜日';
@@ -152,7 +164,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get notebook_pages => 'ノートのページ';
 
   @override
-  String get time_remaining => '次のアザーンまでの時間';
+  String time_remaining(Object prayer, Object time) {
+    return '次のアザーンまでの時間';
+  }
 
   @override
   String get no_upcoming_prayer => '本日の予定された礼拝はありません';

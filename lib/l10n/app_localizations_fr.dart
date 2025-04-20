@@ -1,4 +1,8 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
 
 /// The translations for French (`fr`).
 class AppLocalizationsFr extends AppLocalizations {
@@ -12,6 +16,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get voice_Memo => 'Sesli Not';
+
+  @override
+  String get decrease_hijri_day => 'Diminuer le jour hégirien';
+
+  @override
+  String get increase_hijri_day => 'Augmenter le jour hégirien';
 
   @override
   String get hijri_month_2 => 'Safar';
@@ -83,7 +93,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get month_12 => 'Décembre';
 
   @override
-  String get hijri_day_label => 'Hijri Day: {day}';
+  String hijri_day_label(Object day) {
+    return 'Hijri Day: $day';
+  }
 
   @override
   String get day_name_sunday => 'Dimanche';
@@ -152,7 +164,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get notebook_pages => 'Pages du carnet';
 
   @override
-  String get time_remaining => 'Temps restant pour la prière de ';
+  String time_remaining(Object prayer, Object time) {
+    return 'Temps restant pour la prière de ';
+  }
 
   @override
   String get no_upcoming_prayer => 'Aucune prière à venir pour aujourd\'hui.';

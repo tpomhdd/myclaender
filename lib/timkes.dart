@@ -223,7 +223,10 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
                   text: nextPrayerName != null
-                      ? "${localizations.time_remaining}  ${translatePrayer(nextPrayerName!, localizations)} ${formatDuration(remainingTime)}"
+                      ?
+                  localizations.time_remaining('prayer', 'time')+' '+translatePrayer(nextPrayerName!, localizations)+' '+formatDuration(remainingTime)
+
+                  //"${localizations.time_remaining}  ${translatePrayer(nextPrayerName!, localizations)} ${}"
                       : localizations.no_upcoming_prayer,
                   size: 15,
                 ),
@@ -246,7 +249,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                       String remainingText =
                       formatDurationForSpeech(remainingTime);
                       await flutterTts.speak(
-                          "${localizations.time_remaining} $prayerTimeText $remainingText");
+                          "${   localizations.time_remaining('prayer', 'time')} $prayerTimeText $remainingText");
                     } else {
                       await flutterTts
                           .speak(localizations.no_upcoming_prayer);

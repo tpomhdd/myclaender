@@ -31,6 +31,9 @@
   "add_page": "Ajouter une page de carnet",
   "notebook_pages": "Pages du carnet",
 
+    "decrease_hijri_day": "Diminuer le jour hégirien",
+    "increase_hijri_day": "Augmenter le jour hégirien",
+
   "month_1": "Janvier",
   "month_2": "Février",
   "month_3": "Mars",
