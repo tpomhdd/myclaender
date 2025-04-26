@@ -77,8 +77,10 @@ class _VoiceMemoScreenState extends State<VoiceMemoScreen> {
 
     loadMemos();
     AdManager.loadInterstitialAd(() {
+
       print("تم إغلاق الإعلان بنجاح");
     });
+
 
   }
 

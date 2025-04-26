@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+jhijri_picker:
+  path: /lib/jhijri_picker/lib/_src/_jHijriPicker
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -86,8 +88,7 @@ dev_dependencies:
   country_state_city_picker: ^1.2.8
   country_code_picker: ^3.0.0
   sqflite:
-  jhijri_picker: 0.0.3
-
+  jhijri_picker: ^1.0.1
   google_mobile_ads: ^4.0.0
 
   adhan:

@@ -4,330 +4,12 @@ import 'package:flutter/rendering.dart';
 import 'dart:math' as math;
 import 'package:flutter/services.dart';
 import 'package:jhijri/jHijri.dart';
-import '../jhijri_picker.dart';
 
-typedef SelectableDayPredicate = bool Function(HijriDate day);
-Future<HijriDate?> showJHijriPicker({
-  required BuildContext context,
-  JDateModel? selectedDate,
-  JDateModel? startDate,
-  JDateModel? endDate,
-  DatePickerMode pickerMode = DatePickerMode.day,
-  String? okButton,
-  String? cancelButton,
-  Widget? headerTitle,
-  Widget? buttons,
-  Function(HijriDate datetime)? onOk,
-  Function(HijriDate datetime)? onChange,
-  VoidCallback? onCancel,
-  ThemeData? theme,
-  Color? primaryColor,
-  Color? backgroundColor,
-  Color? calendarTextColor,
-  Color? buttonTextColor,
-  SelectableDayPredicate? selectableDayPredicate,
-  Radius? borderRadius,
-  TextDirection? textDirection,
-  Locale? locale,
-}) {
-  return showDialog<HijriDate?>(
-    context: context,
-    builder: (BuildContext context) {
-      return JHijriPicker(
-        startDate: startDate,
-        selectedDate: selectedDate,
-        endDate: endDate,
-        pickerMode: pickerMode,
-        themeD: theme,
-        textDirection: textDirection,
-        locale: locale,
-        okButtonT: okButton,
-        cancelButtonT: cancelButton,
-        onOk: onOk,
-        onCancel: onCancel,
-        primaryColor: primaryColor,
-        calendarTextColor: calendarTextColor,
-        backgroundColor: backgroundColor,
-        borderRadius: borderRadius,
-        buttonTextColor: buttonTextColor,
-        headerTitle: headerTitle,
-        buttons: buttons,
-        widgetType: WidgetType.JDialog,
-        onChange: onChange,
-        selectableDayPredicate: selectableDayPredicate,
-      );
-    },
-  );
-}
-
-class JHijriPicker extends StatefulWidget {
-  final JDateModel? selectedDate;
-  final JDateModel? startDate;
-  final JDateModel? endDate;
-  final DatePickerMode? pickerMode;
-  final String? okButtonT;
-  final String? cancelButtonT;
-  final Widget? headerTitle;
-  final Function(HijriDate datetime)? onOk;
-  final Function(HijriDate datetime)? onChange;
-  final VoidCallback? onCancel;
-  final ThemeData? themeD;
-  final Color? primaryColor;
-  final Color? backgroundColor;
-  final Color? calendarTextColor;
-  final Color? buttonTextColor;
-  final Radius? borderRadius;
-  final Widget? buttons;
-  final WidgetType widgetType;
-  final TextDirection? textDirection;
-  final SelectableDayPredicate? selectableDayPredicate;
-  final Locale? locale;
-  const JHijriPicker(
-      {Key? key,
-      this.selectedDate,
-      this.startDate,
-      this.endDate,
-      this.pickerMode,
-      this.okButtonT,
-      this.cancelButtonT,
-      this.headerTitle,
-      this.onOk,
-      this.onChange,
-      this.onCancel,
-      this.themeD,
-      this.primaryColor,
-      this.backgroundColor,
-      this.calendarTextColor,
-      this.buttonTextColor,
-      this.borderRadius,
-      this.buttons,
-      this.widgetType = WidgetType.JDialog,
-      this.textDirection,
-      this.locale,
-      this.selectableDayPredicate})
-      : super(key: key);
-
-  @override
-  State<JHijriPicker> createState() => _JHijriPickerState();
-}
-
-class _JHijriPickerState extends State<JHijriPicker> {
-  late HijriDate sel;
-  late JHijri sel1;
-  late JHijri sta;
-  late JHijri end;
-  @override
-  void initState() {
-    _jDa();
-    super.initState();
-  }
-
-  _jDa() {
-    if (widget.startDate != null) {
-      if (widget.startDate!.jhijri != null) {
-        sta = widget.startDate!.jhijri!;
-      } else if (widget.startDate!.dateTime != null) {
-        sta = JHijri(fDate: widget.startDate!.dateTime);
-      } else {
-        sta = JHijri(fYear: 2018);
-      }
-    }
-    if (widget.endDate != null) {
-      if (widget.endDate!.jhijri != null) {
-        end = widget.endDate!.jhijri!;
-      } else if (widget.endDate!.dateTime != null) {
-        end = JHijri(fDate: widget.endDate!.dateTime);
-      } else {
-        end = JHijri(fYear: 2060);
-      }
-    }
-    if (widget.selectedDate != null) {
-      if (widget.selectedDate!.jhijri != null) {
-        sel1 = widget.selectedDate!.jhijri!;
-        sel = widget.selectedDate!.jhijri!.hijri;
-      } else if (widget.selectedDate!.dateTime != null) {
-        sel1 = JHijri(fDate: widget.selectedDate!.dateTime);
-        sel = JHijri(fDate: widget.selectedDate!.dateTime).hijri;
-      } else {
-        sel1 = JHijri.now();
-        sel = HijriDate.now();
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = widget.themeD ?? Theme.of(context);
-    final media = MediaQuery.of(context);
-    return _JLocalDirection(
-        locale: widget.locale,
-        textDirection: widget.textDirection,
-        child: _WidgetType(
-            widgetType: widget.widgetType,
-            child: Theme(
-              data: ThemeData(
-                colorScheme: theme.colorScheme.copyWith(
-                  primary: widget.primaryColor ?? Colors.blue,
-                  surface: widget.backgroundColor ?? Colors.white,
-                  onSurface: widget.calendarTextColor ?? Colors.black,
-                ),
-              ),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (widget.headerTitle != null) widget.headerTitle!,
-                    Container(
-                      constraints:
-                          BoxConstraints(maxHeight: media.size.height - 120),
-                      decoration: BoxDecoration(
-                        color: widget.backgroundColor ?? Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: widget.borderRadius ??
-                                const Radius.circular(16),
-                            topRight: widget.borderRadius ??
-                                const Radius.circular(16)),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          JCalendarDatePicker(
-                            initialDate: sel1,
-                            firstDate: sta,
-                            lastDate: end,
-                            selectableDayPredicate:
-                                widget.selectableDayPredicate,
-                            onDateChanged: widget.onChange != null
-                                ? (dateTime) => widget.onChange!(dateTime)
-                                : (dateTime) {
-                                    sel = dateTime;
-                                  },
-                          ),
-                        ],
-                      ),
-                    ),
-                    if (widget.buttons != null) widget.buttons!,
-                    if (widget.buttons == null)
-                      Container(
-                        decoration: BoxDecoration(
-                          color: widget.backgroundColor ?? Colors.white,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: widget.borderRadius ??
-                                const Radius.circular(16),
-                            bottomRight: widget.borderRadius ??
-                                const Radius.circular(16),
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: TextButton(
-                                style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      widget.backgroundColor),
-                                ),
-                                onPressed: widget.onCancel ??
-                                    () {
-                                      Navigator.pop(context);
-                                    },
-                                child: Text(
-                                  widget.cancelButtonT ?? "Cancel",
-                                  style: TextStyle(
-                                      color: widget.buttonTextColor ??
-                                          Colors.black),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                              child: VerticalDivider(
-                                color: Colors.grey,
-                              ),
-                            ),
-                            Expanded(
-                              child: TextButton(
-                                style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      widget.backgroundColor),
-                                ),
-                                onPressed: widget.onOk != null
-                                    ? () => widget.onOk!(sel)
-                                    : () {
-                                        Navigator.pop(context, sel);
-                                      },
-                                child: Text(
-                                  widget.okButtonT ?? "Ok",
-                                  style: TextStyle(
-                                      color: widget.buttonTextColor ??
-                                          Colors.black),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            )));
-  }
-}
-
-class _JLocalDirection extends StatelessWidget {
-  final TextDirection? textDirection;
-  final Locale? locale;
-  final Widget child;
-  const _JLocalDirection(
-      {Key? key, this.textDirection, this.locale, required this.child})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Localizations.override(
-      context: context,
-      locale: locale,
-      child: textDirection != null
-          ? Directionality(
-              textDirection: textDirection!,
-              child: child,
-            )
-          : child,
-    );
-  }
-}
-
-class _WidgetType extends StatelessWidget {
-  final Widget child;
-  final WidgetType widgetType;
-  const _WidgetType({Key? key, required this.widgetType, required this.child})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    switch (widgetType) {
-      case WidgetType.JDialog:
-        return Dialog(
-          backgroundColor: Colors.transparent,
-          alignment: Alignment.center,
-          child: child,
-        );
-      case WidgetType.JContainer:
-        return Container(
-          color: Colors.transparent,
-          alignment: Alignment.center,
-          child: child,
-        );
-    }
-  }
-}
-
+typedef JSelectableDayPredicate = bool Function(HijriDate day);
 const Duration _monthScrollDuration = Duration(milliseconds: 200);
 
 const double _dayPickerRowHeight = 42.0;
-const int _maxDayPickerRowCount = 6; // A 31 day month that starts on Saturday.
-// One extra row for the day-of-week header.
+const int _maxDayPickerRowCount = 6;
 const double _maxDayPickerHeight =
     _dayPickerRowHeight * (_maxDayPickerRowCount + 1);
 const double _monthPickerHorizontalPadding = 8.0;
@@ -348,16 +30,14 @@ const double _monthNavButtonsWidth = 108.0;
 /// showing.
 ///
 /// The calendar picker widget is rarely used directly. Instead, consider using
-/// [showDatePicker], which will create a dialog that uses this as well as
+/// [showJHijriPicker], which will create a dialog that uses this as well as
 /// provides a text entry option.
 ///
 /// See also:
 ///
-///  * [showDatePicker], which creates a Dialog that contains a
+///  * [showJHijriPicker], which creates a Dialog that contains a
 ///    [JCalendarDatePicker] and provides an optional compact view where the
 ///    user can enter a date as a line of text.
-///  * [showTimePicker], which shows a dialog that contains a Material Design
-///    time picker.
 
 class JCalendarDatePicker extends StatefulWidget {
   /// Creates a calendar date picker.
@@ -397,26 +77,27 @@ class JCalendarDatePicker extends StatefulWidget {
     this.onDisplayedMonthChanged,
     this.initialCalendarMode = DatePickerMode.day,
     this.selectableDayPredicate,
+    this.localeCode = 'en',
   })  : initialDate = initialDate.hijri,
         firstDate = firstDate.hijri,
         lastDate = lastDate.hijri,
         currentDate = currentDate?.hijri ?? HijriDate.now() {
     assert(
-      !this.lastDate.dateTime.isBefore(this.firstDate.dateTime),
-      'lastDate ${this.lastDate} must be on or after firstDate ${this.firstDate}.',
+    !this.lastDate.dateTime.isBefore(this.firstDate.dateTime),
+    'lastDate ${this.lastDate} must be on or after firstDate ${this.firstDate}.',
     );
     assert(
-      !this.initialDate.dateTime.isBefore(this.firstDate.dateTime),
-      'initialDate ${this.initialDate} must be on or after firstDate ${this.firstDate}.',
+    !this.initialDate.dateTime.isBefore(this.firstDate.dateTime),
+    'initialDate ${this.initialDate} must be on or after firstDate ${this.firstDate}.',
     );
     assert(
-      !this.initialDate.dateTime.isAfter(this.lastDate.dateTime),
-      'initialDate ${this.initialDate} must be on or before lastDate ${this.lastDate}.',
+    !this.initialDate.dateTime.isAfter(this.lastDate.dateTime),
+    'initialDate ${this.initialDate} must be on or before lastDate ${this.lastDate}.',
     );
     assert(
-      selectableDayPredicate == null ||
-          selectableDayPredicate!(this.initialDate),
-      'Provided initialDate ${this.initialDate} must satisfy provided selectableDayPredicate.',
+    selectableDayPredicate == null ||
+        selectableDayPredicate!(this.initialDate),
+    'Provided initialDate ${this.initialDate} must satisfy provided selectableDayPredicate.',
     );
   }
 
@@ -428,6 +109,9 @@ class JCalendarDatePicker extends StatefulWidget {
 
   /// The latest allowable [HijriDate] that the user can select.
   final HijriDate lastDate;
+
+  /// The latest allowable [HijriDate] that the user can select.
+  final String localeCode;
 
   /// The [DateTime] representing today. It will be highlighted in the day grid.
   final HijriDate currentDate;
@@ -442,7 +126,7 @@ class JCalendarDatePicker extends StatefulWidget {
   final DatePickerMode initialCalendarMode;
 
   /// Function to provide full control over which dates in the calendar can be selected.
-  final SelectableDayPredicate? selectableDayPredicate;
+  final JSelectableDayPredicate? selectableDayPredicate;
 
   @override
   State<JCalendarDatePicker> createState() => _JCalendarDatePickerState();
@@ -455,7 +139,6 @@ class _JCalendarDatePickerState extends State<JCalendarDatePicker> {
   late HijriDate _selectedDate;
   final GlobalKey _monthPickerKey = GlobalKey();
   final GlobalKey _yearPickerKey = GlobalKey();
-  //late MaterialLocalizations _localizations;
   late TextDirection _textDirection;
 
   @override
@@ -463,9 +146,9 @@ class _JCalendarDatePickerState extends State<JCalendarDatePicker> {
     super.initState();
     _mode = widget.initialCalendarMode;
     _currentDisplayedMonthDate = JHijri(
-            fYear: widget.initialDate.year,
-            fMonth: widget.initialDate.month,
-            fDay: widget.initialDate.day)
+        fYear: widget.initialDate.year,
+        fMonth: widget.initialDate.month,
+        fDay: widget.initialDate.day)
         .hijri;
     _selectedDate = widget.initialDate;
   }
@@ -480,9 +163,9 @@ class _JCalendarDatePickerState extends State<JCalendarDatePicker> {
     if (!widget.initialDate.dateTime
         .isAtSameMomentAs(oldWidget.initialDate.dateTime)) {
       _currentDisplayedMonthDate = JHijri(
-              fYear: widget.initialDate.year,
-              fMonth: widget.initialDate.month,
-              fDay: widget.initialDate.day)
+          fYear: widget.initialDate.year,
+          fMonth: widget.initialDate.month,
+          fDay: widget.initialDate.day)
           .hijri;
       _selectedDate = widget.initialDate;
     }
@@ -616,7 +299,8 @@ class _JCalendarDatePickerState extends State<JCalendarDatePicker> {
         // Put the mode toggle button on top so that it won't be covered up by the _MonthPicker
         _JDatePickerModeToggleButton(
           mode: _mode,
-          year: _currentDisplayedMonthDate.year.toString(),
+          year: _yearC,
+          // year: _currentDisplayedMonthDate.year.toString(),
           onTitlePressed: () {
             // Toggle the day/year mode.
             _handleModeChanged(_mode == DatePickerMode.day
@@ -626,6 +310,100 @@ class _JCalendarDatePickerState extends State<JCalendarDatePicker> {
         ),
       ],
     );
+  }
+
+  String get _yearC {
+    final String fl = widget.localeCode.toLowerCase();
+    switch (fl) {
+      case "ar":
+      case "arc":
+      case "ha":
+      case "dv":
+      case "he":
+      case "fa":
+      case "ur":
+      case "khw":
+      case "ks":
+      case "ps":
+      case "yi":
+        return "${_arabicMonth(_currentDisplayedMonthDate.month)} ${_currentDisplayedMonthDate.year}";
+      default:
+        return "${_arabicMonth2(_currentDisplayedMonthDate.month)} ${_currentDisplayedMonthDate.year}";
+    }
+  }
+}
+
+String _arabicMonth(var month) {
+  switch (month) {
+    case 1:
+    case "Muharram":
+      return "محرم";
+    case 2:
+    case "Safar":
+      return "صفر";
+    case 3:
+    case "Rabi' Al-Awwal":
+      return "ربيع الاول";
+    case 4:
+    case "Rabi' Al-Thani":
+      return "ربيع الثاني";
+    case 5:
+    case "Jumada Al-Awwal":
+      return "جمادى الأول";
+    case 6:
+    case "Jumada Al-Thani":
+      return "جمادى الثاني";
+    case 7:
+    case "Rajab":
+      return "رجب";
+    case 8:
+    case "Sha'aban":
+      return "شعبان";
+    case 9:
+    case "Ramadan":
+      return "رمضان";
+    case 10:
+    case "Shawwal":
+      return "شوال";
+    case 11:
+    case "Dhu Al-Qi'dah":
+      return "ذو القعدة";
+    case 12:
+    case "Dhu Al-Hijjah":
+      return "ذو الحجة";
+    default:
+      return "";
+  }
+}
+
+String _arabicMonth2(var month) {
+  switch (month) {
+    case 1:
+      return "Muharram";
+    case 2:
+      return "Safar";
+    case 3:
+      return "Rabi' Al-Awwal";
+    case 4:
+      return "Rabi' Al-Thani";
+    case 5:
+      return "Jumada Al-Awwal";
+    case 6:
+      return "Jumada Al-Thani";
+    case 7:
+      return "Rajab";
+    case 8:
+      return "Sha'aban";
+    case 9:
+      return "Ramadan";
+    case 10:
+      return "Shawwal";
+    case 11:
+      return "Dhu Al-Qi'dah";
+    case 12:
+      return "Dhu Al-Hijjah";
+    default:
+      return "";
   }
 }
 
@@ -733,7 +511,7 @@ class _JDatePickerModeToggleButtonState
             ),
           ),
           if (widget.mode == DatePickerMode.day)
-            // Give space for the prev/next month buttons that are underneath this row
+          // Give space for the prev/next month buttons that are underneath this row
             const SizedBox(width: _monthNavButtonsWidth),
         ],
       ),
@@ -793,7 +571,7 @@ class _JMonthPicker extends StatefulWidget {
   final ValueChanged<HijriDate> onDisplayedMonthChanged;
 
   /// Optional user supplied predicate function to customize selectable days.
-  final SelectableDayPredicate? selectableDayPredicate;
+  final JSelectableDayPredicate? selectableDayPredicate;
 
   @override
   _JMonthPickerState createState() => _JMonthPickerState();
@@ -818,17 +596,17 @@ class _JMonthPickerState extends State<_JMonthPicker> {
         initialPage: _monthDelta(widget.firstDate, _currentMonth));
     _shortcutMap = const <ShortcutActivator, Intent>{
       SingleActivator(LogicalKeyboardKey.arrowLeft):
-          DirectionalFocusIntent(TraversalDirection.left),
+      DirectionalFocusIntent(TraversalDirection.left),
       SingleActivator(LogicalKeyboardKey.arrowRight):
-          DirectionalFocusIntent(TraversalDirection.right),
+      DirectionalFocusIntent(TraversalDirection.right),
       SingleActivator(LogicalKeyboardKey.arrowDown):
-          DirectionalFocusIntent(TraversalDirection.down),
+      DirectionalFocusIntent(TraversalDirection.down),
       SingleActivator(LogicalKeyboardKey.arrowUp):
-          DirectionalFocusIntent(TraversalDirection.up),
+      DirectionalFocusIntent(TraversalDirection.up),
     };
     _actionMap = <Type, Action<Intent>>{
       NextFocusIntent:
-          CallbackAction<NextFocusIntent>(onInvoke: _handleGridNextFocus),
+      CallbackAction<NextFocusIntent>(onInvoke: _handleGridNextFocus),
       PreviousFocusIntent: CallbackAction<PreviousFocusIntent>(
           onInvoke: _handleGridPreviousFocus),
       DirectionalFocusIntent: CallbackAction<DirectionalFocusIntent>(
@@ -851,7 +629,7 @@ class _JMonthPickerState extends State<_JMonthPicker> {
         widget.initialMonth != _currentMonth) {
       // We can't interrupt this widget build with a scroll, so do it next frame
       WidgetsBinding.instance.addPostFrameCallback(
-        (Duration timeStamp) => _showMonth(widget.initialMonth, jump: true),
+            (Duration timeStamp) => _showMonth(widget.initialMonth, jump: true),
       );
     }
   }
@@ -882,9 +660,6 @@ class _JMonthPickerState extends State<_JMonthPicker> {
     int fY = xz % 12 == 0 ? xx - 1 : xx;
     int fM = xz % 12 == 0 ? 12 : xz % 12;
     var x = JHijri(fMonth: fM, fDay: 1, fYear: fY).hijri;
-    /* var x = HijriCalendar.addMonth(
-        monthDate.hYear + (monthDate.hMonth + monthsToAdd) ~/ 12,
-        monthDate.hMonth + monthsToAdd % 12);*/
     return x;
   }
 
@@ -895,7 +670,7 @@ class _JMonthPickerState extends State<_JMonthPicker> {
   void _handleMonthPageChanged(int monthPage) {
     setState(() {
       final HijriDate monthDate =
-          _addMonthsToMonthDate(widget.firstDate, monthPage);
+      _addMonthsToMonthDate(widget.firstDate, monthPage);
       if (!_isSameMonth(_currentMonth, monthDate)) {
         _currentMonth =
             JHijri(fYear: monthDate.year, fMonth: monthDate.month).hijri;
@@ -1034,7 +809,7 @@ class _JMonthPickerState extends State<_JMonthPicker> {
     assert(_focusedDay != null);
     setState(() {
       final HijriDate? nextDate =
-          _nextDateInDirection(_focusedDay!, intent.direction);
+      _nextDateInDirection(_focusedDay!, intent.direction);
       if (nextDate != null) {
         _focusedDay = nextDate;
         if (!_isSameMonth(_focusedDay, _currentMonth)) {
@@ -1045,7 +820,7 @@ class _JMonthPickerState extends State<_JMonthPicker> {
   }
 
   static const Map<TraversalDirection, int> _directionOffset =
-      <TraversalDirection, int>{
+  <TraversalDirection, int>{
     TraversalDirection.up: -DateTime.daysPerWeek,
     TraversalDirection.right: 1,
     TraversalDirection.down: DateTime.daysPerWeek,
@@ -1070,9 +845,9 @@ class _JMonthPickerState extends State<_JMonthPicker> {
     final TextDirection textDirection = Directionality.of(context);
 
     HijriDate nextDate = JHijri(
-            fYear: date.year,
-            fMonth: date.month,
-            fDay: _dayDirectionOffset(direction, textDirection))
+        fYear: date.year,
+        fMonth: date.month,
+        fDay: _dayDirectionOffset(direction, textDirection))
         .hijri;
     while (!nextDate.dateTime.isBefore(widget.firstDate.dateTime) &&
         !nextDate.dateTime.isAfter(widget.lastDate.dateTime)) {
@@ -1081,9 +856,9 @@ class _JMonthPickerState extends State<_JMonthPicker> {
       }
 
       nextDate = JHijri(
-              fYear: nextDate.year,
-              fMonth: nextDate.month,
-              fDay: _dayDirectionOffset(direction, textDirection))
+          fYear: nextDate.year,
+          fMonth: nextDate.month,
+          fDay: _dayDirectionOffset(direction, textDirection))
           .hijri;
     }
     return null;
@@ -1112,8 +887,7 @@ class _JMonthPickerState extends State<_JMonthPicker> {
   @override
   Widget build(BuildContext context) {
     final Color controlColor =
-        Theme.of(context).colorScheme.onSurface.withOpacity(0.60);
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    Theme.of(context).colorScheme.onSurface.withOpacity(0.60);
     return Semantics(
       child: Column(
         children: <Widget>[
@@ -1130,7 +904,7 @@ class _JMonthPickerState extends State<_JMonthPicker> {
                       ? null
                       : _localizations.previousMonthTooltip,
                   onPressed:
-                      _isDisplayingFirstMonth ? null : _handlePreviousMonth,
+                  _isDisplayingFirstMonth ? null : _handlePreviousMonth,
                 ),
                 IconButton(
                   icon: const Icon(Icons.chevron_right),
@@ -1143,13 +917,13 @@ class _JMonthPickerState extends State<_JMonthPicker> {
               ],
             ),
           ),
-          Text(
+          /*Text(
             "${widget.selectedDate.dayName.toString()} / ${widget.selectedDate.day} / ${widget.selectedDate.monthName}",
             overflow: TextOverflow.ellipsis,
             style: textTheme.titleSmall?.copyWith(
               color: controlColor,
             ),
-          ),
+          ),*/
           Expanded(
             child: FocusableActionDetector(
               shortcuts: _shortcutMap,
@@ -1199,7 +973,7 @@ class _JFocusedDate extends InheritedWidget {
 
   static HijriDate? of(BuildContext context) {
     final _JFocusedDate? focusedDate =
-        context.dependOnInheritedWidgetOfExactType<_JFocusedDate>();
+    context.dependOnInheritedWidgetOfExactType<_JFocusedDate>();
     return focusedDate?.date;
   }
 }
@@ -1248,7 +1022,7 @@ class _JDayPicker extends StatefulWidget {
   final HijriDate displayedMonth;
 
   /// Optional user supplied predicate function to customize selectable days.
-  final SelectableDayPredicate? selectableDayPredicate;
+  final JSelectableDayPredicate? selectableDayPredicate;
 
   @override
   _JDayPickerState createState() => _JDayPickerState();
@@ -1265,7 +1039,7 @@ class _JDayPickerState extends State<_JDayPicker> {
         widget.displayedMonth.year, widget.displayedMonth.month);
     _dayFocusNodes = List<FocusNode>.generate(
       daysInMonth,
-      (int index) =>
+          (int index) =>
           FocusNode(skipTraversal: true, debugLabel: 'Day ${index + 1}'),
     );
   }
@@ -1328,20 +1102,6 @@ class _JDayPickerState extends State<_JDayPicker> {
     }
     return result;
   }
-  /*List<Widget> _dayHeaders(
-      TextStyle? headerStyle, MaterialLocalizations localizations) {
-    final List<Widget> result = <Widget>[];
-    for (int i = localizations.firstDayOfWeekIndex; true; i = (i + 1) % 7) {
-      final String weekday = localizations.narrowWeekdays[i];
-      result.add(ExcludeSemantics(
-        child: Center(child: Text(weekday, style: headerStyle)),
-      ));
-      if (i == (localizations.firstDayOfWeekIndex - 1) % 7) {
-        break;
-      }
-    }
-    return result;
-  }*/
 
   static bool _isSameDay(HijriDate? dateA, HijriDate? dateB) {
     return dateA?.year == dateB?.year &&
@@ -1367,7 +1127,7 @@ class _JDayPickerState extends State<_JDayPicker> {
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final MaterialLocalizations localizations =
-        MaterialLocalizations.of(context);
+    MaterialLocalizations.of(context);
     final TextTheme textTheme = Theme.of(context).textTheme;
     final TextStyle? headerStyle = textTheme.bodySmall?.apply(
       color: colorScheme.onSurface.withOpacity(0.60),
@@ -1375,7 +1135,7 @@ class _JDayPickerState extends State<_JDayPicker> {
     final TextStyle dayStyle = textTheme.bodySmall!;
     final Color enabledDayColor = colorScheme.onSurface.withOpacity(0.87);
     final Color disabledDayColor = colorScheme.onSurface.withOpacity(0.38);
-    final Color selectedDayColor = colorScheme.onPrimary; 
+    final Color selectedDayColor = colorScheme.onPrimary;
     final Color selectedDayBackground = colorScheme.primary;
     final Color todayColor = colorScheme.primary;
 
@@ -1505,7 +1265,7 @@ class _JDayPickerGridDelegate extends SliverGridDelegate {
 }
 
 const _JDayPickerGridDelegate _dayPickerGridDelegate =
-    _JDayPickerGridDelegate();
+_JDayPickerGridDelegate();
 
 /// A scrollable grid of years to allow picking a year.
 ///
@@ -1600,7 +1360,7 @@ class _JYearPickerState extends State<JYearPicker> {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final TextTheme textTheme = Theme.of(context).textTheme;
 
-    // Backfill the _YearPicker with disabled years if necessary.
+    // Back fill the _YearPicker with disabled years if necessary.
     final int offset = _itemCount < minYears ? (minYears - _itemCount) ~/ 2 : 0;
     final int year = widget.firstDate.year + index - offset;
     final bool isSelected = year == widget.selectedDate.year;
@@ -1660,9 +1420,9 @@ class _JYearPickerState extends State<JYearPicker> {
       yearItem = InkWell(
         key: ValueKey<int>(year),
         onTap: () => widget.onChanged(JHijri(
-                fYear: year,
-                fMonth: widget.initialDate.month,
-                fDay: widget.initialDate.day)
+            fYear: year,
+            fMonth: widget.initialDate.month,
+            fDay: widget.initialDate.day)
             .hijri),
         child: yearItem,
       );
@@ -1703,7 +1463,7 @@ class _JYearPickerGridDelegate extends SliverGridDelegate {
   @override
   SliverGridLayout getLayout(SliverConstraints constraints) {
     final double tileWidth = (constraints.crossAxisExtent -
-            (_yearPickerColumnCount - 1) * _yearPickerRowSpacing) /
+        (_yearPickerColumnCount - 1) * _yearPickerRowSpacing) /
         _yearPickerColumnCount;
     return SliverGridRegularTileLayout(
       childCrossAxisExtent: tileWidth,
@@ -1720,4 +1480,4 @@ class _JYearPickerGridDelegate extends SliverGridDelegate {
 }
 
 const _JYearPickerGridDelegate _yearPickerGridDelegate =
-    _JYearPickerGridDelegate();
+_JYearPickerGridDelegate();
