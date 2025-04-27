@@ -6,7 +6,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:jhijri/jHijri.dart';
-import 'package:jhijri_picker/jhijri_picker.dart';
+//import 'package:jhijri_picker/jhijri_picker.dart';
 import 'package:untitled/Theme/color.dart';
 import 'package:untitled/core/Clinet.dart';
 import 'package:untitled/core/Services/pickimage.dart';
@@ -465,41 +465,41 @@ mydata.snakbar();                    Navigator.pop(context);
               }
             },
           ),
-          tap_settings(
-            txt: AppLocalizations.of(context)!.hijri_calendar,
-            onPressed1: () async {
-              final dateTime = await showJHijriPicker(
-                context: context,
-                startDate: JDateModel(jhijri: JHijri(fYear: 1442, fMonth: 12, fDay: 10)),
-                selectedDate: JDateModel(jhijri: JHijri.now()),
-                endDate: JDateModel(jhijri: JHijri(fYear: 1460, fMonth: 1, fDay: 25)),
-                pickerMode: DatePickerMode.day,
-                theme: Theme.of(context),
-                locale: Locale("ar", "SA"),
-                okButton: AppLocalizations.of(context)!.save,
-                cancelButton: AppLocalizations.of(context)!.back,
-                onOk: (HijriDate value) {
-                  setState(() {
-                    jh3 = JHijri(
-                        fYear: value.year,
-                        fMonth: value.month,
-                        fDay: value.day
-                    );
-                  });
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                },
-                onCancel: () => Navigator.pop(context),
-                primaryColor: Colors.blue,
-                calendarTextColor: Colors.white,
-                backgroundColor: Colors.black,
-                borderRadius: Radius.circular(10),
-                buttonTextColor: Colors.white,
-                headerTitle: Center(child: Text(AppLocalizations.of(context)!.hijri_calendar)),
-              );
-            },
-          ),
-        ],
+        //   tap_settings(
+        //     txt: AppLocalizations.of(context)!.hijri_calendar,
+        //     onPressed1: () async {
+        //       final dateTime = await showJHijriPicker(
+        //         context: context,
+        //         startDate: JDateModel(jhijri: JHijri(fYear: 1442, fMonth: 12, fDay: 10)),
+        //         selectedDate: JDateModel(jhijri: JHijri.now()),
+        //         endDate: JDateModel(jhijri: JHijri(fYear: 1460, fMonth: 1, fDay: 25)),
+        //         pickerMode: DatePickerMode.day,
+        //         theme: Theme.of(context),
+        //         locale: Locale("ar", "SA"),
+        //         okButton: AppLocalizations.of(context)!.save,
+        //         cancelButton: AppLocalizations.of(context)!.back,
+        //         onOk: (HijriDate value) {
+        //           setState(() {
+        //             jh3 = JHijri(
+        //                 fYear: value.year,
+        //                 fMonth: value.month,
+        //                 fDay: value.day
+        //             );
+        //           });
+        //           Navigator.pop(context);
+        //           Navigator.pop(context);
+        //         },
+        //         onCancel: () => Navigator.pop(context),
+        //         primaryColor: Colors.blue,
+        //         calendarTextColor: Colors.white,
+        //         backgroundColor: Colors.black,
+        //         borderRadius: Radius.circular(10),
+        //         buttonTextColor: Colors.white,
+        //         headerTitle: Center(child: Text(AppLocalizations.of(context)!.hijri_calendar)),
+        //       );
+        //     },
+        //   ),
+         ],
       ),
     );
   }
@@ -567,12 +567,13 @@ mydata.snakbar();                    Navigator.pop(context);
                     title: "صفحات دفتر الملاحظات",
                     onTap: () => Get.to(PagesNote()),
                   ),
-                  _buildListTile(
-                    context,
-                    icon: Icons.calendar_today,
-                    title: "التقويم الهجري",
-                    onTap: () => Get.to(HijriDateScreen()),
-                  ),
+                  // _buildListTile(
+                  //   context,
+                  //   icon: Icons.calendar_today,
+                  //   title: "التقويم الهجري",
+                  //   onTap: () => Get.to(HijriDateScreen()),
+                  // ),
+                  //
                 ],
               ),
             );
