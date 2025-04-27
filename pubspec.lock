@@ -649,10 +649,10 @@ packages:
     dependency: "direct dev"
     description:
       name: jhijri
-      sha256: "306a53dea8ee409a56b7782f9ce21fd25f79dca2d719a267eabdf3c00bdd5508"
+      sha256: c2a28e803b1d07513a29953c6685b933235511a1f57966fd5bf66bfdae131f70
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "1.0.0"
   jiffy:
     dependency: "direct dev"
     description:
